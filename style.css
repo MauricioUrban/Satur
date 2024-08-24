@@ -1,0 +1,76 @@
+body {
+    margin: 10%;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: lightslategray;
+    color: #fff;
+    padding: 20px;
+    text-align: left;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu {
+    display: none;
+}
+
+#menu-toggle:checked + .menu {
+    display: block;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+}
+/*-----------------Tabla SATUR--------------------------------*/
+body {
+    align-items: center;
+    background-color: rgba(229, 234, 236, 0.664);
+
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    align-items: center;
+  }
+
+  th,
+  td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  #img-satur {
+    width: 180px;
+    height: auto;
+    padding: 10px;
+  }
+  .header{
+    text-align: right;
+  }
+
+  /*---------------------Footer -----------------------------------*/
+
+  .container-footer{
+    justify-content: space-between;
+  }
