@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %} Listado de Articulos {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar Nuevo Artículo</a>
+
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Artículos</h4>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>EAN</th>
+                        <th>DUN</th>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Presentación</th>
+                        <th>uxb</th>
+                        <th>Marca</th>
+                        <th>Precio</th>
+                        <th>Departamento</th>
+                        <th>Familia</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td>1</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>Imagen.jpg</td>
+                        <td>Café</td>
+                        <td>molido x 500grs</td>
+                        <td>12</td>
+                        <td>Cabrales</td>
+                        <td>2950</td>
+                        <td>Café</td>
+                        <td>Desayuno</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="{% url 'editar' %}" role="button">Editar</a>
+                            |
+                            <a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
