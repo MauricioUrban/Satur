@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %} Listado de Pedidos {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar Nuevo Pedido</a>
+
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Pedidos</h4>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>EAN</th>
+                        <th>DUN</th>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Presentación</th>
+                        <th>uxb</th>
+                        <th>Marca</th>
+                        <th>Precio</th>
+                        <th>Departamento</th>
+                        <th>Familia</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for articulo in articulos %}
+                    <tr class="">
+                        <td>{{ articulo.id }}</td>
+                        <td>{{ articulo.ean }}</td>
+                        <td>{{ articulo.dun }}</td>
+                        <td>
+                            <img src="{{ articulo.imagen.url }}" height="100">
+                        </td>
+                        <td>{{ articulo.producto }}</td>
+                        <td>{{ articulo.presentacion }}</td>
+                        <td>{{ articulo.uxb }}</td>
+                        <td>{{ articulo.marca }}</td>
+                        <td>{{ articulo.precio }}</td>
+                        <td>{{ articulo.departamento }}</td>
+                        <td>{{ articulo.familia }}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="{% url 'editar' articulo.id %}" role="button">Editar</a>
+                            |
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' articulo.id %}" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
