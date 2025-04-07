@@ -15,7 +15,7 @@
             <table class="table table-primary">
                 <thead>
                     <tr>
-                        <th>Código</th>
+                        <th>id</th>
                         <th>EAN</th>
                         <th>DUN</th>
                         <th>Imagen</th>
@@ -30,24 +30,28 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for articulo in articulos %}
                     <tr class="">
-                        <td>1</td>
-                        <td>13</td>
-                        <td>14</td>
-                        <td>Imagen.jpg</td>
-                        <td>Café</td>
-                        <td>molido x 500grs</td>
-                        <td>12</td>
-                        <td>Cabrales</td>
-                        <td>2950</td>
-                        <td>Café</td>
-                        <td>Desayuno</td>
+                        <td>{{ articulo.id }}</td>
+                        <td>{{ articulo.ean }}</td>
+                        <td>{{ articulo.dun }}</td>
+                        <td>
+                            <img src="{{ articulo.imagen.url }}" height="100">
+                        </td>
+                        <td>{{ articulo.producto }}</td>
+                        <td>{{ articulo.presentacion }}</td>
+                        <td>{{ articulo.uxb }}</td>
+                        <td>{{ articulo.marca }}</td>
+                        <td>{{ articulo.precio }}</td>
+                        <td>{{ articulo.departamento }}</td>
+                        <td>{{ articulo.familia }}</td>
                         <td>
                             <a name="" id="" class="btn btn-info" href="{% url 'editar' %}" role="button">Editar</a>
                             |
                             <a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a>
                         </td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
