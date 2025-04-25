@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} Agregar nuevo Pedido {% endblock %}
+
+{% block contenido %}
+
+    <div class="card">
+        <div class="card-header">
+            Crear un Pedido
+
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Datos del Pedido</h4>
+            {% include 'Pedidos/form.html' %}
+
+        </div>
+        <div class="card-footer text-muted">
+                Footer
+        </div>
+    </div>
+    
+
+{% endblock %}

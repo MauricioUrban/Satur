@@ -11,13 +11,10 @@ urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('nosotros', views.nosotros, name='nosotros'),
     path('articulos', views.articulos, name='articulos'),
-    path('articulos/crear', views.crear, name='crear'),
-    path('articulos/editar', views.editar, name='editar'),
-    path('eliminar/<int:id>', views.eliminar, name='eliminar'),
-    path('articulos/editar/<int:id>', views.editar, name='editar'),
+    path('articulos/crear', views.crear, name='articulo_crear'),
+    path('articulos/eliminar/<int:id>', views.eliminar, name='articulo_eliminar'),
+    path('articulos/editar/<int:id>', views.editar, name='articulo_editar'),
 
 
 #para manejo de imagenes
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-

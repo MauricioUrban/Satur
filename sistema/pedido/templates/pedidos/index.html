@@ -16,39 +16,31 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>EAN</th>
-                        <th>DUN</th>
-                        <th>Imagen</th>
-                        <th>Producto</th>
-                        <th>Presentación</th>
-                        <th>uxb</th>
-                        <th>Marca</th>
-                        <th>Precio</th>
-                        <th>Departamento</th>
-                        <th>Familia</th>
-                        <th>Acciones</th>
+                        <th>Fecha</th>
+                        <th>Empresa</th>
+                        <th>Cliente</th>
+                        <th>Destino</th>
+                        <th>Cant Pallets</th>
+                        <th>Demora</th>
+                        <th>Observaciones</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
-                    {% for articulo in articulos %}
+                    {% for pedido in pedidos %}
                     <tr class="">
-                        <td>{{ articulo.id }}</td>
-                        <td>{{ articulo.ean }}</td>
-                        <td>{{ articulo.dun }}</td>
+                        <td>{{ pedido.id }}</td>
+                        <td>{{ pedido.fecha }}</td>
+                        <td>{{ pedido.empresa }}</td>
+                        <td>{{ pedido.cliente }}</td>
+                        <td>{{ pedido.destino }}</td>
+                        <td>{{ pedido.cant_pallets }}</td>
+                        <td>{{ pedido.demora }}</td>
+                        <td>{{ pedido.observaciones }}</td>
                         <td>
-                            <img src="{{ articulo.imagen.url }}" height="100">
-                        </td>
-                        <td>{{ articulo.producto }}</td>
-                        <td>{{ articulo.presentacion }}</td>
-                        <td>{{ articulo.uxb }}</td>
-                        <td>{{ articulo.marca }}</td>
-                        <td>{{ articulo.precio }}</td>
-                        <td>{{ articulo.departamento }}</td>
-                        <td>{{ articulo.familia }}</td>
-                        <td>
-                            <a name="" id="" class="btn btn-info" href="{% url 'editar' articulo.id %}" role="button">Editar</a>
+                            <a name="" id="" class="btn btn-info" href="{% url 'editar' pedido.id %}" role="button">Editar</a>
                             |
-                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' articulo.id %}" role="button">Borrar</a>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' pedido.id %}" role="button">Borrar</a>
                         </td>
                     </tr>
                     {% endfor %}

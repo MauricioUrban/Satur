@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from .models import Pedido
 from .forms import PedidoForm
+from django.shortcuts import render, redirect
 
 
 # Create your views here.

@@ -20,7 +20,7 @@ from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('articulo.urls')),
-    path('', include('pedido.urls')),
-
+    path('', include('articulo.urls')),  # Asignamos 'articulo' como la raíz
+    path('pedido/', include('pedido.urls')),
 ]
+
