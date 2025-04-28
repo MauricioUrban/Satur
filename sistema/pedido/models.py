@@ -9,6 +9,7 @@ def __str__(self):
         return f"Pedido: {self.id} - Cliente: {self.cliente} - Empresa: {self.empresa} - Cant Pallets: {self.cant_pallets}"
 
 class Pedido(models.Model):
+
     id = models.AutoField(primary_key=True)
     fecha = models.DateField(verbose_name="Fecha")
     empresa = models.CharField(max_length=30, verbose_name="Empresa")
@@ -19,9 +20,10 @@ class Pedido(models.Model):
     observacion = models.TextField(null=True, blank=True, verbose_name="Observación")
 
     def clean(self):
-        if self.cant_pallets <= 0:
+        if self.cant_pallets is None or self.cant_pallets <= 0:
             raise ValidationError("La cantidad de pallets debe ser mayor a 0.")
 
+    
     class Meta:
         verbose_name = "Pedido"
         verbose_name_plural = "Pedidos"
