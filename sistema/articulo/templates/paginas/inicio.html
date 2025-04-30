@@ -5,20 +5,14 @@
 {% block contenido %}
     
     <div class="row align-items-md-stretch">
-        <div class="col-md-6">
-            <div
-                class="h-100 p-5 text-white bg-primary border rounded-3">
-                <h2>Bienvenidos al sitio de los Artículos </h2>
-                <p>Empezar a ingresar artículos</p>
-                <button
-                    class="btn btn-outline-primary"
-                    type="button"
-                >Empezar </button>
-            </div>
-        </div>
-        <div class="col-md-6">
-            </div>
-    </div>
-    
+        <div class="col-md-12">
+          <div class="h-100 p-5 text-white bg-primary border rounded-3 text-center">
+            <h2>Bienvenidos al sitio de CDB</h2>
+            <p class="mb-4">Ingresar Pedidos</p>
+            <button class="btn btn-lg btn-light text-primary fw-bold" type="button" onclick="window.location.href='/pedido/pedidos/crear/';">Empezar</button>
 
+          </div>
+        </div>
+      </div>
+      
 {% endblock %}

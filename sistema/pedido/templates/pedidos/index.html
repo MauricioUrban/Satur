@@ -3,32 +3,66 @@
 {% block title %} Listado de Pedidos {% endblock %}
 
 {% block contenido %}
-
-<div class="card">
-    <div class="card-header">
-        <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar Nuevo Pedido</a>
-
+<div class="card mt-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h4 class="card-title mb-0">Pedidos</h4>
+        <a class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar Nuevo Pedido</a>
     </div>
     <div class="card-body">
-        <h4 class="card-title">Pedidos</h4>
         <div class="table-responsive">
-            <table class="table table-primary">
-                <thead>
+
+            <form method="GET" class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <label class="form-label">Filtrar por destinos:</label>
+                    <div class="form-check">
+                        {% for destino in destinos_disponibles %}
+                        <div class="form-check">
+                            <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                name="filtro_destinos" 
+                                value="{{ destino }}" 
+                                {% if destino in filtro_destinos %}checked{% endif %}>
+                            <label class="form-check-label">
+                                {{ destino }}
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="filtro_empresa" value="{{ filtro_empresa }}" class="form-control" placeholder="Buscar por empresa">
+                </div>
+                <div class="col-md-3">
+                    <select name="orden" class="form-select">
+                        <option value="id" {% if orden_actual == 'id' %}selected{% endif %}>ID</option>
+                        <option value="destino" {% if orden_actual == 'destino' %}selected{% endif %}>Destino</option>
+                        <option value="empresa" {% if orden_actual == 'empresa' %}selected{% endif %}>Empresa</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+                </div>
+            </form>
+            
+
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
                     <tr>
-                        <th>id</th>
-                        <th>Fecha</th>
-                        <th>Empresa</th>
-                        <th>Cliente</th>
-                        <th>Destino</th>
-                        <th>Cant Pallets</th>
-                        <th>Demora</th>
-                        <th>Observaciones</th>
-                        
+                        <th><a href="?orden=id" class="text-white text-decoration-none">ID</a></th>
+                        <th><a href="?orden=fecha" class="text-white text-decoration-none">Fecha</a></th>
+                        <th><a href="?orden=empresa" class="text-white text-decoration-none">Empresa</a></th>
+                        <th><a href="?orden=cliente" class="text-white text-decoration-none">Cliente</a></th>
+                        <th><a href="?orden=destino" class="text-white text-decoration-none">Destino</a></th>
+                        <th><a href="?orden=cant_pallets" class="text-white text-decoration-none">Cant Pallets</a></th>
+                        <th><a href="?orden=demora" class="text-white text-decoration-none">Demora</a></th>
+                        <th><a href="?orden=observacion" class="text-white text-decoration-none">Observaciones</a></th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for pedido in pedidos %}
-                    <tr class="">
+                    <tr>
                         <td>{{ pedido.id }}</td>
                         <td>{{ pedido.fecha }}</td>
                         <td>{{ pedido.empresa }}</td>
@@ -36,20 +70,18 @@
                         <td>{{ pedido.destino }}</td>
                         <td>{{ pedido.cant_pallets }}</td>
                         <td>{{ pedido.demora }}</td>
-                        <td>{{ pedido.observaciones }}</td>
+                        <td>{{ pedido.observacion }}</td>
                         <td>
-                            <a name="" id="" class="btn btn-info" href="{% url 'editar' pedido.id %}" role="button">Editar</a>
-                            |
-                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' pedido.id %}" role="button">Borrar</a>
+                            <a class="btn btn-sm btn-info me-2" href="{% url 'editar' pedido.id %}"
+                                role="button">Editar</a>
+                            <a class="btn btn-sm btn-danger" href="{% url 'eliminar' pedido.id %}"
+                                role="button">Borrar</a>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
-
     </div>
-
 </div>
-
 {% endblock %}
